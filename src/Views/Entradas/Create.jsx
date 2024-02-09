@@ -1,10 +1,8 @@
-import React from 'react'
+import FormEntradas from '../../Components/FormEntradas'
 
 const Create = () => {
   return (
-    <div>
-      Create
-    </div>
+    <FormEntradas id={null} tittle='Nueva Entrada'></FormEntradas>
   )
 }
 

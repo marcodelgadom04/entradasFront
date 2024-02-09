@@ -56,8 +56,8 @@ const FormEntradas = (params) => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-4 offset-md-4">
-          <div className="card">
+        <div className="col-md-6 offset-md-3">
+          <div className="card mt-3">
             <div className="card-header">{params.tittle}</div>
             <div className="card-body">
               <form onSubmit={saveEntrada}>
@@ -90,6 +90,7 @@ const FormEntradas = (params) => {
                 <div>
                   <label htmlFor="fecha">Fecha:</label>
                   <input
+                    className="form-control"
                     type="date"
                     id="fecha"
                     name="fecha"
@@ -102,6 +103,7 @@ const FormEntradas = (params) => {
                 <div>
                   <label htmlFor="contenido">Contenido:</label>
                   <textarea
+                    className="form-control"
                     id="contenido"
                     name="contenido"
                     value={contenido}
@@ -110,7 +112,7 @@ const FormEntradas = (params) => {
                     onChange={(e) => setContenido(e.target.value)}
                   ></textarea>
                 </div>
-                <button type="submit">Guardar</button>
+                <button className="btn btn-primary mt-3 float-end" type="submit">Guardar</button>
               </form>
             </div>
           </div>
