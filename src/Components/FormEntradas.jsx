@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { sendRequest } from "../functions";
+import { useNavigate } from "react-router-dom";
 
 const FormEntradas = (params) => {
   const [titulo, setTitulo] = useState("");
@@ -16,6 +17,9 @@ const FormEntradas = (params) => {
   let url = "/entradas";
   let redirect = "/entradas";
 
+  const navigate = useNavigate();
+
+
   useEffect(() => {
     TituloInput.current.focus();
     AutorInput.current.focus();
@@ -25,7 +29,7 @@ const FormEntradas = (params) => {
   }, []);
 
   const getEntradas = async () => {
-    const res = await sendRequest("GET", "", url + "/" + params.id, "");
+    const res = await sendRequest("GET", "", url + "/" + params.id, "/entradas");
     setTitulo(res.titulo);
     setAutor(res.autor);
     setContenido(res.contenido);
@@ -37,7 +41,7 @@ const FormEntradas = (params) => {
     if (params.id !== null) {
       method = "PUT";
       url = url + "/" + params.id;
-      redirect = "/entradas";
+      navigate("/entradas");
     }
     const res = await sendRequest(
       method,
@@ -50,6 +54,7 @@ const FormEntradas = (params) => {
       setAutor("");
       setContenido("");
       setFecha("");
+      navigate("/entradas");
     }
   };
 
